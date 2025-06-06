@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         </main>
         <Toaster richColors/>
         {/* Footer */}
-        <footer className="bg-blue-50 py-12">
+        <footer className="bg-[#fef8fc] py-12">
           <div className="container mx-auto px-4 text-center text-gray-600">
           <p>© 2025 FinSeek. All rights reserved.</p>
         </div>

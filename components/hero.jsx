@@ -34,7 +34,7 @@ const HeroSection = () => {
   return (
     <div className="pb-20 px-4">
       <div className="container mx-auto text-center">
-        <Badge className='bg-orange-100 text-orange-600 mb-6'>Manage expenses. Simplify life.</Badge>
+        <Badge className='bg-[#efdaf4] text-[#642b73] mb-6'>Manage expenses. Simplify life.</Badge>
         <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title">
           Manage your Finances <br /> with Intelligence
         </h1>

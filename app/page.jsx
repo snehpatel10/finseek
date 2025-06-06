@@ -10,10 +10,10 @@ export default function Home() {
     <div className="mt-40">
       <HeroSection />
 
-      <section id='features' className="py-20 bg-blue-50">
+      <section id='features' className="py-20 bg-[#fef8fc]">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <Badge className='mb-4 bg-orange-100 text-orange-400' >Feature</Badge>
+            <Badge className='mb-4 bg-[#efdaf4] text-[#642b73]' >Feature</Badge>
           </div>
           <h2 className="gradient-title text-3xl font-bold text-center mb-6">
             Everything you need to manage your finances
@@ -43,7 +43,7 @@ export default function Home() {
       <section id='howItWorks' className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <Badge className='mb-4 bg-orange-100 text-orange-400' >How It Works</Badge>
+            <Badge className='mb-4 bg-[#efdaf4] text-[#642b73]' >How It Works</Badge>
           </div>
           <h2 className="gradient-title text-3xl font-bold text-center mb-6">
             Your Financial Journey, Simplified
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 via-60% to-pink-500">
+      <section className="py-20 bg-gradient-to-r from-[#642b73] to-[#c6426e]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-white text-3xl font-bold text-center mb-4">
             Ready to Take Control of Your Finances?
