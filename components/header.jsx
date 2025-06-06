@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from './ui/button'
 import { LayoutDashboard, PenBox } from 'lucide-react'
+import Image from 'next/image'
 
 const Header = () => {
   const pathname = usePathname()
@@ -15,9 +16,14 @@ const Header = () => {
       <nav className='container mx-auto px-4 py-4 flex items-center justify-between relative'>
 
         {/* Logo */}
-        <Link href='/' className="inline-flex items-center font-bold text-2xl cursor-pointer select-none">
-          <span className='text-orange-500'>Fin</span>
-          <span className='text-blue-500'>Seek</span>
+        <Link href='/' className="inline-flex items-center font-bold cursor-pointer select-none">
+          <Image 
+          src={"/finseek.png"}
+          alt="FinSeek logo"
+          height={60}
+          width={200}
+          className='h-6 w-auto object-contain'
+          />
         </Link>
 
         {/* Centered Links (hidden on auth pages) */}
