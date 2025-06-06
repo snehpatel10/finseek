@@ -8,7 +8,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -33,7 +32,6 @@ import {
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -195,7 +193,7 @@ const TransactionTable = ({ transactions }) => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
     setSelectedIds([]);
-  }
+  };
 
   return (
     <div className="space-y-4 ">
@@ -243,6 +241,7 @@ const TransactionTable = ({ transactions }) => {
               variant="destructive"
               size="sm"
               onClick={() => handleBulkDelete()}
+              className="hidden sm:flex"
             >
               <Trash className="h-4 w-4 mr-1" />
               Delete Selected ({selectedIds.length})
@@ -261,6 +260,19 @@ const TransactionTable = ({ transactions }) => {
           )}
         </div>
       </div>
+      {selectedIds.length > 0 && (
+        <div className="sm:hidden mt-4">
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={() => handleBulkDelete()}
+            className="w-full"
+          >
+            <Trash className="h-4 w-4 mr-1" />
+            Delete Selected ({selectedIds.length})
+          </Button>
+        </div>
+      )}
 
       {/* Transaction  Table*/}
       <div className="rounded-md border">
@@ -271,8 +283,7 @@ const TransactionTable = ({ transactions }) => {
                 <Checkbox
                   onCheckedChange={() => handleSelectAll()}
                   checked={
-                    selectedIds.length ===
-                      paginatedTransactions.length &&
+                    selectedIds.length === paginatedTransactions.length &&
                     paginatedTransactions.length > 0
                   }
                 />
