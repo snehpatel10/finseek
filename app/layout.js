@@ -10,7 +10,7 @@ export const metadata = {
   title: "FinSeek",
   description: "One stop solution for finance",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.ico",
   }
 };
 
