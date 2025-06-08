@@ -1,5 +1,6 @@
 "use client";
 
+import { Controller } from "react-hook-form";
 import { createTransaction, updateTransaction } from "@/actions/transaction";
 import { transactionSchema } from "@/app/lib/schema";
 import CreateAccountDrawer from "@/components/create-account-drawer";
@@ -46,8 +47,10 @@ const AddTransactionForm = ({
     watch,
     getValues,
     reset,
+    control,
   } = useForm({
     resolver: zodResolver(transactionSchema),
+    mode: "onChange",
     defaultValues:
       editMode && initialData
         ? {
@@ -112,13 +115,13 @@ const AddTransactionForm = ({
 
   const handleScanComplete = (scannedData) => {
     if (scannedData) {
-      setValue("amount", scannedData.amount.toString());
-      setValue("date", new Date(scannedData.date));
+      setValue("amount", scannedData.amount.toString(), { shouldValidate: true });
+      setValue("date", new Date(scannedData.date), { shouldValidate: true });
       if (scannedData.description) {
-        setValue("description", scannedData.description);
+        setValue("description", scannedData.description, { shouldValidate: true });
       }
       if (scannedData.category) {
-        setValue("category", scannedData.category);
+        setValue("category", scannedData.category, { shouldValidate: true });
       }
     }
   };
@@ -197,21 +200,30 @@ const AddTransactionForm = ({
 
       <div className="space-y-2">
         <label className="text-sm font-medium">Category</label>
-        <Select
-          onValueChange={(value) => setValue("category", value)}
-          value={getValues("category")}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select category" />
-          </SelectTrigger>
-          <SelectContent>
-            {filteredCategories.map((category) => (
-              <SelectItem key={category.id} value={category.id}>
-                {category.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <Controller
+  control={control}
+  name="category"
+  render={({ field }) => (
+    <Select
+      onValueChange={(value) => {
+        field.onChange(value); // updates form value
+      }}
+      value={field.value}
+      defaultValue={field.value}
+    >
+      <SelectTrigger>
+        <SelectValue placeholder="Select category" />
+      </SelectTrigger>
+      <SelectContent>
+        {filteredCategories.map((category) => (
+          <SelectItem key={category.id} value={category.id}>
+            {category.name}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )}
+/>
 
         {errors.category && (
           <p className="text-sm text-red-500">{errors.category.message}</p>
