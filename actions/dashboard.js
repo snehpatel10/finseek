@@ -86,8 +86,8 @@ export async function getUserAccounts(){
     });
 
     if (!user) throw new Error("User not found");
-
-    const accounts = await db.account.findMany({
+    try {
+      const accounts = await db.account.findMany({
         where: {
             userId: user.id,
         },
@@ -103,7 +103,12 @@ export async function getUserAccounts(){
 
     const serializedAccount = accounts.map(serializeTransaction);
 
-    return serializedAccount    
+    return serializedAccount  
+    } catch (error) {
+      console.error(error.message)
+    }
+
+      
 }
 
 export async function getDashboardData() {

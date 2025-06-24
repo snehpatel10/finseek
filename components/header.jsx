@@ -58,10 +58,10 @@ const Header = () => {
           </SignedIn>
 
           <SignedOut>
-            <SignInButton forceRedirectUrl="/dashboard">
+            <SignInButton>
               <Button variant="outline">Login</Button>
             </SignInButton>
-            <SignUpButton forceRedirectUrl="/dashboard">
+            <SignUpButton>
               <Button className='bg-blue-600 hover:bg-blue-700'>Get Started</Button>
             </SignUpButton>
           </SignedOut>
