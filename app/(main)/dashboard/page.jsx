@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { getUserAccounts } from "@/actions/dashboard";
 import { getDashboardData } from "@/actions/dashboard";
 import { getCurrentBudget } from "@/actions/budget";
-import { AccountCard } from "./_components/account-card";
+import  AccountCard  from "./_components/account-card"
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
