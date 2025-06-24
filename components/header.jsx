@@ -4,8 +4,7 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@cl
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from './ui/button'
-import { LayoutDashboard, PenBox } from 'lucide-react'
-import Image from 'next/image'
+import { ChartNoAxesColumn, LayoutDashboard, PenBox } from 'lucide-react'
 
 const Header = () => {
   const pathname = usePathname()
@@ -17,13 +16,11 @@ const Header = () => {
 
         {/* Logo */}
         <Link href='/' className="inline-flex items-center font-bold cursor-pointer select-none">
-          <Image 
-          src={"/finseek.png"}
-          alt="FinSeek logo"
-          height={60}
-          width={200}
-          className='h-6 w-auto object-contain'
-          />
+        <div className='flex'>
+          <ChartNoAxesColumn size={28} className='text-indigo-700 font-bold'/>
+            <span className='text-2xl tracking-tight text-pink-600 font-bold'>fin</span>
+            <span className='text-2xl tracking-tight text-pink-600 font-bold'>seek</span>
+        </div>
         </Link>
 
         {/* Centered Links (hidden on auth pages) */}
